@@ -8,21 +8,24 @@ function game (){
         if (gameoutput === "Player wins"){
             playerscore++;
             //return playerscore
-        console.log(playerscore)
+        //console.log(playerscore)
         }
         else if (gameoutput === "Computer wins"){
             computerscore++;
             //return computerscore
-        console.log(computerscore)
+        //console.log(computerscore)
         } 
         else{ 
             ties++;
-        console.log(ties)
+        //console.log(ties)
         }
     }
+
+    //return computer, player, and tie points
+    //return `At the end of the round player has ${playerscore}, computer has ${computerscore}, and ties score is ${ties}`
  //declear winner line
     if ( playerscore === computerscore){
-        console.log(`Tie: player have ${playerscore}, computer have ${computerscore} point`)
+        console.log(`Tied: player have ${playerscore}, computer have ${computerscore} point`)
     }
 
     else if (playerscore > computerscore){
@@ -30,18 +33,7 @@ function game (){
     }
     else if (playerscore < computerscore){
         console.log(`Player lost the round to computer: computer won with ${computerscore} points while player has ${playerscore} point.`);
-    }
-    
-    //return gameoutput
-    //if (gameoutput === "Player wins"){
-      //  playerScore = +1;
-        //console.log(playerScore)
-    //}
-    //else if (gameoutput === "Computer wins"){
-      //  ComputerScore = +1;
-        //console.log(ComputerScore)
-   // }
-
+    } 
 }
 function getComputerChoice(){
     let randomize = Math.floor(Math.random() * 3);
@@ -63,36 +55,31 @@ function playRound(playerSelection, computerSelection){
     return "This is a tie!"
         }
     else if (playerSelection === "Rock" && computerSelection === "Scissors"){
-        console.log("player wins!") 
+        //console.log("player wins!") 
     return "Player wins"
     }
     else if (playerSelection === "Scissors" && computerSelection === "Rock"){
-        console.log("You lose!, Computer wins. Try again") 
+       // console.log("You lose!, Computer wins. Try again") 
     return "Computer wins"
     }
     else if (playerSelection === "Paper" && computerSelection === "Scissors"){
-        console.log("You lose!, Computer wins. Try again") 
+        //console.log("You lose!, Computer wins. Try again") 
     return "Computer wins"
     }
     else if (playerSelection === "Scissors" && computerSelection === "Paper"){
-        console.log("You win!") 
+        //console.log("You win!") 
     return "Player wins"
     }
     else if (playerSelection === "Paper" && computerSelection === "Rock"){
-        console.log("You Won! again!") 
+        //console.log("You Won! again!") 
     return "Player wins"
     }
     else if (playerSelection === "Rock" && computerSelection === "Paper"){
-        console.log("Computer won again!")
+        //console.log("Computer won again!")
     return "Computer wins"
     }
-    
-    //else {
-    //return "This is a tie!"
-    //}
 }
 
 
    
 console.log(game())
-//console.log(playRound("Scissors", getComputerChoice())
