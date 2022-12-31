@@ -1,40 +1,32 @@
-function game (){
-    let computerscore = 0;
-    let playerscore = 0;
-    let ties = 0;
-    for (let i = 0; i < 5; i++){
-        let userinput = prompt("enter rock, scissors, or paper");
-        let gameoutput = playRound(userinput, getComputerChoice());
-        if (gameoutput === "Player wins"){
-            playerscore++;
-            //return playerscore
-        //console.log(playerscore)
-        }
-        else if (gameoutput === "Computer wins"){
-            computerscore++;
-            //return computerscore
-        //console.log(computerscore)
-        } 
-        else{ 
-            ties++;
-        //console.log(ties)
-        }
-    }
+//global variables
+let playerScore = 0;
+let computerScore = 0;
+let ties = 0;
 
-    //return computer, player, and tie points
-    //return `At the end of the round player has ${playerscore}, computer has ${computerscore}, and ties score is ${ties}`
- //declear winner line
-    if ( playerscore === computerscore){
-        console.log(`Tied: player have ${playerscore}, computer have ${computerscore} point`)
-    }
+//check for winner and declear!
 
-    else if (playerscore > computerscore){
-        console.log(`Player won the round with ${playerscore} points; computer has ${computerscore}; ties are ${ties}`);
-    }
-    else if (playerscore < computerscore){
-        console.log(`Player lost the round to computer: computer won with ${computerscore} points while player has ${playerscore} point.`);
-    } 
-}
+
+//Add Event listener to buttons
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    let getbutton = button.textContent;
+    button.addEventListener('click', function(){
+        const playgame = playRound(getbutton, getComputerChoice());  
+        result = playgame;
+    });
+});
+
+//const addtext = document.querySelector(".gameresultDisplay");
+//const text = document.createElement('div');
+//text.classList.add('text');
+//text.textContent = `the running scores are computer ${computerScore}, player ${playerScore}`;
+//addtext.appendChild(text);
+//else if (computerScore === playerScore) {
+  //  let tiescore = ties++;
+    //console.log(tiescore);
+//}
+
+//function to get a randomize value from computer
 function getComputerChoice(){
     let randomize = Math.floor(Math.random() * 3);
     if (randomize === 1){
@@ -47,39 +39,110 @@ function getComputerChoice(){
     return randomize
     //console.log(randomize)
 }
-console.log(getComputerChoice())
 
+//function that plays the game: the heart of the game logic
 function playRound(playerSelection, computerSelection){
     if (playerSelection === computerSelection){
-
+        ties++;
+        const tietxt = document.querySelector(".ttxt");
+        tietxt.classList.toggle('tietext');
+        tietxt.textContent = `Ties: There are ${ties} tie(s)`;
+        //if (playerScore === 5 && playerScore > computerScore){
+       //     console.log(`Player won! with ${playerScore} points; computer has ${computerScore}`);
+       // }
+        //console.log(ties)
     return "This is a tie!"
         }
     else if (playerSelection === "Rock" && computerSelection === "Scissors"){
-        //console.log("player wins!") 
+        //console.log("player wins!")
+        playerScore++; 
+        const player = document.querySelector(".playerscore");
+        player.classList.toggle('player');
+        player.textContent = `Player scores: ${playerScore} point(s)`;
+        if (playerScore === 5 && playerScore > computerScore){
+            const declareWinner = document.querySelector('.gamer-winner');
+            declareWinner.classList.toggle('declareWinner');
+            declareWinner.textContent = `Player won! with ${playerScore} points; computer has ${computerScore}`
+            //console.log(`Player won! with ${playerScore} points; computer has ${computerScore}`);
+        }
+       // console.log(playerScore)
     return "Player wins"
     }
     else if (playerSelection === "Scissors" && computerSelection === "Rock"){
-       // console.log("You lose!, Computer wins. Try again") 
+        //console.log("You lose!, Computer wins. Try again") 
+        computerScore++;
+        const comp = document.querySelector(".computerscore");
+        comp.classList.toggle('comp');
+        comp.textContent = `computer scores: ${computerScore} point(s)`;
+        if (computerScore === 5 && playerScore < computerScore){
+            const declareWinner = document.querySelector('.gamer-winner');
+            declareWinner.classList.toggle('declareWinner');
+            declareWinner.textContent = `Player lost! with ${playerScore} points; computer won the round with ${computerScore} points`
+            //console.log(`Player lost! with ${playerScore} points; computer won the round with ${computerScore} points`);
+        }       
+        //console.log(computerScore)
     return "Computer wins"
     }
     else if (playerSelection === "Paper" && computerSelection === "Scissors"){
-        //console.log("You lose!, Computer wins. Try again") 
+        //console.log("You lose!, Computer wins. Try again")
+        computerScore++; 
+        const comp = document.querySelector(".computerscore");
+        comp.classList.toggle('comp');
+        comp.textContent = `computer scores: ${computerScore} point(s)`;
+        if (computerScore === 5 && playerScore < computerScore){
+            const declareWinner = document.querySelector('.gamer-winner');
+            declareWinner.classList.toggle('declareWinner');
+            declareWinner.textContent = `Player lost! with ${playerScore} points; computer won the round with ${computerScore} points`
+            //console.log(`Player lost! with ${playerScore} points; computer won the round with ${computerScore} points`);
+        }
+       // console.log(computerScore)
     return "Computer wins"
     }
     else if (playerSelection === "Scissors" && computerSelection === "Paper"){
         //console.log("You win!") 
+        playerScore++;
+        const player = document.querySelector(".playerscore");
+        player.classList.toggle('player');
+        player.textContent = `Player scores: ${playerScore} point(s)`;
+        if (playerScore === 5 && playerScore > computerScore){
+            const declareWinner = document.querySelector('.gamer-winner');
+            declareWinner.classList.toggle('declareWinner');
+            declareWinner.textContent = `Player won! with ${playerScore} points; computer has ${computerScore}`
+            //console.log(`Player won! with ${playerScore} points; computer has ${computerScore}`);
+        }
+        //console.log(playerScore)
     return "Player wins"
     }
     else if (playerSelection === "Paper" && computerSelection === "Rock"){
         //console.log("You Won! again!") 
+        playerScore++;
+        const player = document.querySelector(".playerscore");
+        player.classList.toggle('player');
+        player.textContent = `Player scores: ${playerScore} point(s)`;
+        if (playerScore === 5 && playerScore > computerScore){
+            const declareWinner = document.querySelector('.gamer-winner');
+            declareWinner.classList.toggle('declareWinner');
+            declareWinner.textContent = `Player won! with ${playerScore} points; computer has ${computerScore}`
+            //console.log(`Player won! with ${playerScore} points; computer has ${computerScore}`);
+        } 
+        //console.log(playerScore)
     return "Player wins"
     }
     else if (playerSelection === "Rock" && computerSelection === "Paper"){
         //console.log("Computer won again!")
+        computerScore++;
+        const comp = document.querySelector(".computerscore");
+        comp.classList.toggle('comp');
+        comp.textContent = `computer scores: ${computerScore} point(s)`;
+        if (computerScore === 5 && playerScore < computerScore){
+            const declareWinner = document.querySelector('.gamer-winner');
+            declareWinner.classList.toggle('declareWinner');
+            declareWinner.textContent = `Player lost! with ${playerScore} points; computer won the round with ${computerScore} points`
+            //console.log(`Player lost! with ${playerScore} points; computer won the round with ${computerScore} points`);
+        }      
+        // console.log(computerScore)
     return "Computer wins"
     }
+    return;
 }
 
-
-   
-console.log(game())

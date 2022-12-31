@@ -5,9 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <script src="./rock-paper.js"></script>
+    <script src="./rock-paper.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <div class="gametitle">ROCK PAPER SCISSORS GAME</div>
+    <div class="game-body">
+        <div class="rules">
+            <p>Rules:</p>
+            <p>Follow the rules below to play the game</p>
+            <ul>
+                <li>Rock beat scissors</li>
+                <li>Scissors beats paper</li>
+                <li>Paper beats Rock</li>
+                <li>You play against computer</li>
+                <li>The first player to get to 5 points win the game round</li>
+                <li>Click on rock, scissors, or paper to start playing</li>
+                <li>Reload the game after a winner is declared</li>
+            </ul>
+        </div>
+        <div class="gameboard">
+            <div class='gamer-winner'></div>
+            <div class="gameresultDisplay">
+                <div class="computerscore"></div>
+                <div class="playerscore"></div>
+                <div class="ttxt"></div>
+            </div>
+            <div class="buttonContainer">
+                <button>Rock</button>
+                <button>Scissors</button>
+                <button>Paper</button>
+        
+            </div>
+        </div> 
+
+    </div>
     
 </body>
 </html>
