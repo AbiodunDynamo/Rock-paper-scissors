@@ -3,9 +3,6 @@ let playerScore = 0;
 let computerScore = 0;
 let ties = 0;
 
-//check for winner and declear!
-
-
 //Add Event listener to buttons
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
@@ -15,16 +12,6 @@ buttons.forEach((button) => {
         result = playgame;
     });
 });
-
-//const addtext = document.querySelector(".gameresultDisplay");
-//const text = document.createElement('div');
-//text.classList.add('text');
-//text.textContent = `the running scores are computer ${computerScore}, player ${playerScore}`;
-//addtext.appendChild(text);
-//else if (computerScore === playerScore) {
-  //  let tiescore = ties++;
-    //console.log(tiescore);
-//}
 
 //function to get a randomize value from computer
 function getComputerChoice(){
@@ -47,10 +34,6 @@ function playRound(playerSelection, computerSelection){
         const tietxt = document.querySelector(".ttxt");
         tietxt.classList.toggle('tietext');
         tietxt.textContent = `Ties: There are ${ties} tie(s)`;
-        //if (playerScore === 5 && playerScore > computerScore){
-       //     console.log(`Player won! with ${playerScore} points; computer has ${computerScore}`);
-       // }
-        //console.log(ties)
     return "This is a tie!"
         }
     else if (playerSelection === "Rock" && computerSelection === "Scissors"){
